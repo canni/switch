@@ -4,4 +4,4 @@ python:
   - "2.7"
   - "3.2"
   - "3.3"
-script: py.test --doctest-modules switch.py tests/test_switch.py
+script: py.test --doctest-modules switch.py tests

@@ -95,19 +95,6 @@ class Switch(object):
 
     >>> test_switch_default_fall_through(7)
     [6]
-
-
-    >>> with Switch(3) as case:
-    ...   if case(1, fall_through=True):
-    ...     print 1
-    ...   if case.default:
-    ...     print 'default'
-    ...   if case(2):
-    ...     print 2
-    ...
-    Traceback (most recent call last):
-      ...
-    SyntaxError: Case after default is prohibited
     """
 
     class StopExecution(Exception):

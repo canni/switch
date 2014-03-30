@@ -115,3 +115,14 @@ def test_no_side_effects():
             assert True
         if case.default:
             assert False
+
+
+def test_exception():
+    with pytest.raises(SyntaxError):
+        with Switch(2) as case:
+            if case(1):
+                assert False
+            if case.default:
+                assert True
+            if case(2):
+                assert False
