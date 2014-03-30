@@ -1,4 +1,4 @@
-.. image:: https://travis-ci.org/canni/switch.svg?branch=master
+.. image:: https://travis-ci.org/canni/switch.svg?branch=v1.0.1
    :target: https://travis-ci.org/canni/switch
 
 
