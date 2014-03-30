@@ -10,6 +10,8 @@ Default behaviour
 
 .. code-block:: python
 
+   from switch import Switch
+
    def test_switch(val):
        ret = []
 

@@ -1,30 +1,14 @@
 # -*- coding: utf-8 -*-
-#
-# This file is part of switch module.
-# Copyright (c) Dariusz Górecki <darek.krk@gmail.com>
-#
-# Switch is free software; you can redistribute it and/or modify
-# it under the terms of the GNU Lesser Public License as published by
-# the Free Software Foundation; either version 3 of the License, or
-# (at your option) any later version.
-#
-# Switch is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Lesser Public License for more details.
-#
-# You should have received a copy of the GNU Lesser Public License
-# along with switch; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-#
 
 from __future__ import with_statement
 
-__version__ = '1.0.0'
+__version__ = '1.0.1'
 
 
 class Switch(object):
     """
+    Switch, simple implementation of switch statement for Python, eg:
+
     >>> def test_switch(val):
     ...   ret = []
     ...   with Switch(val) as case:
@@ -123,7 +107,7 @@ class Switch(object):
         if self._default_used:
             raise SyntaxError('Case after default is prohibited')
 
-        if self._use_default is False and self._fall_through is False:
+        if self._finished:
             raise self.StopExecution()
         elif call(self._value) or self._fall_through:
             self._use_default = False
@@ -137,7 +121,7 @@ class Switch(object):
 
     @property
     def default(self):
-        if self._use_default is False and self._fall_through is False:
+        if self._finished:
             raise self.StopExecution()
 
         self._default_used = True
@@ -146,6 +130,10 @@ class Switch(object):
             return True
 
         return False
+
+    @property
+    def _finished(self):
+        return self._use_default is False and self._fall_through is False
 
 
 class CSwitch(Switch):
