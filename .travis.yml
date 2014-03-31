@@ -6,6 +6,6 @@ python:
   - "3.3"
 install:
   - pip install pytest-cov coveralls --use-mirrors
-script: py.test --doctest-modules switch.py tests
+script: py.test switch.py tests --doctest-modules -v --cov switch --cov-report term-missing
 after_success:
   - coveralls
