@@ -38,8 +38,10 @@ def switch_default_fall_through(val):
            ret.append(4)
        if case(5):
            ret.append(5)
-       if case.default:
+       if case(6):
            ret.append(6)
+       if case.default:
+           ret.append(7)
    return ret
 
 
@@ -56,8 +58,10 @@ def cswitch(val):
            ret.append(4)
        if case(5):
            ret.append(5)
-       if case.default:
+       if case(6):
            ret.append(6)
+       if case.default:
+           ret.append(7)
    return ret
 
 
@@ -78,8 +82,8 @@ def test_switch(value, expected):
     (2, [2, 3, 4]),
     (3, [3, 4]),
     (4, [4]),
-    (5, [5]),
-    (10, [6]),
+    (5, [5, 6]),
+    (10, [7]),
 ))
 def test_switch_fall_through(value, expected):
     assert switch_default_fall_through(value) == expected
