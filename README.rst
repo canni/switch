@@ -16,6 +16,7 @@ Switch
 Changelog
 ---------
 
+- v1.0.3: Maintenance release, no significant code changes
 - v1.0.2: 100% unit test coverage
 
 
