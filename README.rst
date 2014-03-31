@@ -89,8 +89,8 @@ Fall through example:
     assert fall_through_example('anything else') == ['No love for 1 or 2?']
 
 
-Ouh! Callable too!:
--------------------
+Cases can have callable test:
+-----------------------------
 
 .. code-block:: python
 
@@ -116,8 +116,8 @@ Ouh! Callable too!:
     assert ouh_callable_too('anything else') == ['No love for anything lower than 100?']
 
 
-Fall through by default? NP!:
------------------------------
+Fall through by default:
+------------------------
 
 .. code-block:: python
 

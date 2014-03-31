@@ -3,6 +3,7 @@
 from __future__ import with_statement
 
 __version__ = '1.0.2'
+__all__ = ['CSwitch', 'Switch']
 
 
 class Switch(object):
