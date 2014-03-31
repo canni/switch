@@ -1,8 +1,8 @@
-.. image:: https://travis-ci.org/canni/switch.svg?branch=master
+.. image:: https://travis-ci.org/canni/switch.svg?branch=v1.0.2
    :target: https://travis-ci.org/canni/switch
 
-.. image:: https://coveralls.io/repos/canni/switch/badge.png?branch=master
-   :target: https://coveralls.io/r/canni/switch?branch=master
+.. image:: https://coveralls.io/repos/canni/switch/badge.png?branch=v1.0.2
+   :target: https://coveralls.io/r/canni/switch?branch=v1.0.2
 
 .. image:: https://pypip.in/download/switch/badge.png
     :target: https://pypi.python.org/pypi/switch/
@@ -15,7 +15,7 @@ Switch
 Changelog
 ---------
 
-- 1.0.x: 100% unit test coverage
+- v1.0.2: 100% unit test coverage
 
 
 Default behaviour
