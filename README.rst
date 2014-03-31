@@ -1,6 +1,9 @@
 .. image:: https://travis-ci.org/canni/switch.svg?branch=master
    :target: https://travis-ci.org/canni/switch
 
+.. image:: https://coveralls.io/repos/canni/switch/badge.png?branch=master
+   :target: https://coveralls.io/r/canni/switch?branch=master
+
 
 Switch
 ======
@@ -89,4 +92,4 @@ C like switch shortcut
 .. code-block:: python
 
    from switch import CSwitch
-   # CSwitch(valk) is equvalent to Switch(val, fall_through=True)
+   # CSwitch(val) is equivalent to Switch(val, fall_through=True)

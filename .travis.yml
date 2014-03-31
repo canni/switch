@@ -4,4 +4,8 @@ python:
   - "2.7"
   - "3.2"
   - "3.3"
+install:
+  - pip install pytest-cov coveralls --use-mirrors
 script: py.test --doctest-modules switch.py tests
+after_success:
+  - coveralls
