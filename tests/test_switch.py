@@ -145,3 +145,14 @@ def test_exception():
                 assert True
             if case(2):
                 assert False
+
+
+def test_nod_default_case():
+    for cls in (Switch, CSwitch):
+        with cls(3) as case:
+            if case(1):
+                assert False
+            if case(2):
+                assert False
+
+        assert True
