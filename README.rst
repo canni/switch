@@ -4,6 +4,10 @@
 .. image:: https://coveralls.io/repos/canni/switch/badge.png?branch=master
    :target: https://coveralls.io/r/canni/switch?branch=master
 
+.. image:: https://pypip.in/download/switch/badge.png
+    :target: https://pypi.python.org/pypi/switch/
+    :alt: Downloads
+
 
 Switch
 ======
