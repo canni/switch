@@ -12,6 +12,12 @@
 Switch
 ======
 
+Changelog
+---------
+
+- 1.0.x: 100% unit test coverage
+
+
 Default behaviour
 -----------------
 
