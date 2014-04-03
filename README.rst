@@ -7,6 +7,9 @@
 .. image:: https://pypip.in/download/switch/badge.png
     :target: https://pypi.python.org/pypi/switch/
 
+.. image:: https://d2weczhvl823v0.cloudfront.net/canni/switch/trend.png
+    :target: https://bitdeli.com/free
+
 
 Switch
 ======
