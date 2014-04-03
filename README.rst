@@ -1,4 +1,3 @@
-
 .. image:: https://travis-ci.org/canni/switch.svg?branch=master
     :target: https://travis-ci.org/canni/switch
 
@@ -7,7 +6,6 @@
 
 .. image:: https://pypip.in/download/switch/badge.png
     :target: https://pypi.python.org/pypi/switch/
-    :alt: Downloads
 
 
 Switch
@@ -28,16 +26,20 @@ Simple example:
     from switch import Switch
 
     def simple_example(val):
+        values = []
+
         with Switch(val) as case:
             if case(1):
-                return 'Found 1'
+                values.append('Found 1')
 
             if case(2):
-                return 'Found 2'
+                values.append('Found 2')
 
-    assert simple_example(1) == 'Found 1'
-    assert simple_example(2) == 'Found 2'
-    assert simple_example('anything else') == None
+        return values
+
+    assert simple_example(1) == ['Found 1']
+    assert simple_example(2) == ['Found 2']
+    assert simple_example('anything else') == []
 
 
 Simple example with default case:
@@ -48,19 +50,23 @@ Simple example with default case:
     from switch import Switch
 
     def simple_example_with_default(val):
+        values = []
+
         with Switch(val) as case:
             if case(1):
-                return 'Found 1'
+                values.append('Found 1')
 
             if case(2):
-                return 'Found 2'
+                values.append('Found 2')
 
             if case.default:
-                return 'No love for 1 or 2?'
+                values.append('No love for 1 or 2?')
 
-    assert simple_example_with_default(1) == 'Found 1'
-    assert simple_example_with_default(2) == 'Found 2'
-    assert simple_example_with_default('anything else') == 'No love for 1 or 2?'
+        return values
+
+    assert simple_example_with_default(1) == ['Found 1']
+    assert simple_example_with_default(2) == ['Found 2']
+    assert simple_example_with_default('anything else') == ['No love for 1 or 2?']
 
 
 Fall through example:
@@ -180,10 +186,10 @@ Fall through by default:
     assert cswitch_shortcut('anything else') == fall_through_by_default('anything else')
 
 
-Having a case after a default is a bad thing*:
-----------------------------------------------
+Having a case after a default is a bad thing:
+---------------------------------------------
 
-* *Unless some case executes early and finishes without fall through.
+* Unless some case executes early and finishes without fall through.
 
 .. code-block:: python
 
