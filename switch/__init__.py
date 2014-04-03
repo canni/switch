@@ -2,7 +2,7 @@
 
 from __future__ import with_statement
 
-__version__ = '1.0.3'
+__version__ = '1.0.4'
 __all__ = ['CSwitch', 'Switch']
 
 
@@ -82,9 +82,6 @@ class Switch(object):
     [6]
     """
 
-    class StopExecution(Exception):
-        pass
-
     def __init__(self, test_value, fall_through=False):
         self._value = test_value
         self._fall_through = None
@@ -96,10 +93,7 @@ class Switch(object):
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        if exc_type is self.StopExecution:
-            return True
-
-        return False
+        pass
 
     def __call__(self, expr, fall_through=None):
         return self.call(lambda v: v == expr, fall_through)
@@ -109,13 +103,16 @@ class Switch(object):
             raise SyntaxError('Case after default is prohibited')
 
         if self._finished:
-            raise self.StopExecution()
+            return False
+
         elif call(self._value) or self._fall_through:
             self._use_default = False
+
             if fall_through is None:
                 self._fall_through = self._default_fall_through
             else:
                 self._fall_through = fall_through
+
             return True
 
         return False
@@ -123,7 +120,7 @@ class Switch(object):
     @property
     def default(self):
         if self._finished:
-            raise self.StopExecution()
+            return False
 
         self._default_used = True
 
