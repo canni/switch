@@ -7,6 +7,11 @@ __all__ = ['CSwitch', 'Switch']
 
 import re
 
+try:
+    text = unicode
+except NameError:
+    text = str
+
 
 class Switch(object):
     """
@@ -116,7 +121,7 @@ class Switch(object):
         def test(switch_value):
             # It is safe to call `re.compile()` on a compiled pattern:
             # a=re.compile('test'); assert a is re.compile(a)
-            str_switch_value = str(switch_value)
+            str_switch_value = text(switch_value)
             re_tests = (re.compile(v) for v in (match_value, ) + match_values)
             return any(regex.match(str_switch_value) for regex in re_tests)
 
@@ -142,7 +147,7 @@ class Switch(object):
         return not self._matched_case
 
     def _check_finished(self):
-        if self._matched_case is True and self._fall_through is False:
+        if self._matched_case and self._fall_through is False:
             raise self.StopExecution
 
 
